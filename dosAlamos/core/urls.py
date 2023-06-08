@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import home, Servicios, Registro, contacto, clinica, Doctores
+from .views import home, Servicios, Registro, contacto, clinica, Doctores,Sesion
 
 
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
     path('contacto/',contacto,name="contacto"),
     path('clinica/',clinica,name="clinica"),
     path('Doctores/',Doctores,name="Doctores"),
+    path('Sesion/',Sesion,name="Sesion"),
 ]

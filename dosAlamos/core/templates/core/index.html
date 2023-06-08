@@ -53,26 +53,26 @@
                         <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home <span
+                                    <a class="nav-link" href="{% url 'home' %}">Home <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="service.html">service </a>
+                                    <a class="nav-link" href="{% url 'Servicios' %}">service </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="doctores.html">Doctores</a>
+                                    <a class="nav-link" href="{% url 'Doctores' %}">Doctores</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="clinic.html"> clinic</a>
+                                    <a class="nav-link" href="{% url 'clinica' %}"> clinic</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contacto</a>
+                                    <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="sesion.html">Iniciar sesión</a>
+                                    <a class="nav-link" href="{% url 'Registro' %}">Iniciar sesión</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Registrarse.html">Registrarse</a>
+                                    <a class="nav-link" href="{% url 'Registro' %}">Registrarse</a>
                                 </li>
                             </ul>
                         </div>

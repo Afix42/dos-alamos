@@ -4339,6 +4339,7 @@
 
       Toast._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
+          
           var $element = $(this);
           var data = $element.data(DATA_KEY$a);
 

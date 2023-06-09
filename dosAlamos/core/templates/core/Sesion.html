@@ -36,7 +36,7 @@
 <body class="sub_page">
 
 
-    </div>
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
@@ -45,7 +45,7 @@
                     <i class="fa fa-key" aria-hidden="true"></i>
                 </div>
                 <div class="col-lg-12 login-title">
-                    Registrarse
+                    Iniciar sesion
                 </div>
                 
 
@@ -60,22 +60,17 @@
                                 <label class="form-control-label">Contraseña</label>
                                 <input type="password" class="form-control" i>
                             </div>
-                            <div class="form-group">
-                                <label class="form-control-label">Repita contraseña </label>
-                                <input type="password" class="form-control" i>
-                            </div>
 
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-6 login-btm login-text">
                                     <!-- Error Message -->
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button  class="btn btn-outline-primary" href="{% url 'home' %}">Volver</button>
+                                    <button type="submit" class="btn btn-outline-primary" href="{% url 'home' %}">Volver</button>
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button  class="btn btn-outline-primary" href="{% url 'home' %}">Crear sesión</button>
+                                    <button type="submit" class="btn btn-outline-primary" href="{% url 'home' %}">Entrar</button>
                                 </div>
-
                             </div>
                         </form>
                     </div>
@@ -83,6 +78,7 @@
                 <div class="col-lg-3 col-md-2"></div>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

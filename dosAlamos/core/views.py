@@ -20,6 +20,10 @@ def contacto(request):
 
 def clinica(request):
     return render(request, 'core/clinict.html')
+
 def Sesion(request):
     return render(request, 'core/Sesion.html')
+
+def Formulario(request):
+    return render(request, 'core/Formulario.html')
 

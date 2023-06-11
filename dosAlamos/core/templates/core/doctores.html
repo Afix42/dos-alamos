@@ -3,10 +3,11 @@
 {% block Home %}
 <section class="gallery-section layout_padding">
     <div>
-      <h2>
+      <h2 class="textos">
         Nuestros Doctores
       </h2>
     </div>
+    <div>
     <div class="container">
       <div class="card ">
         <img src="{% static 'core/IMG/doctor2.jpg'%}" alt="Avatar" style="width:100%">
@@ -16,7 +17,7 @@
         </div>
       </div> 
       <div class="card ">
-        <img src="{% static ' core/IMG/doctor3.jpg'%}" alt="Avatar" style="width:100%">
+        <img src="{% static 'core/IMG/doctor3.jpg'%}" alt="Avatar" style="width:100%">
         <div class="container">
           <h4><b>Alexander Gramham</b></h4>
           <p>Medicina interna</p>
@@ -50,6 +51,7 @@
           <p>Medicina interna</p>
         </div>
       </div>  
+    </div>
     </div>
   </section>
   {% endblock %}

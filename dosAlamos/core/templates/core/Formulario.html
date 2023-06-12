@@ -14,108 +14,109 @@
 </head>
 
 <body>
-    <form action="">
-        
-    </form>
-    <div class="container">
-        <div class="page-header">
-            <h1>Agendar hora</h1>
+    <form action="container">
+        <div class="container">
+            <div class="page-header">
+                <h1>Agendar hora</h1>
+            </div>
+            <form id="record-form">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="first-name" placeholder="Nombres" checked>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="last-name" placeholder="Apellidos" checked>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="Correo" placeholder="Correo" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="male" name="gender" class="custom-control-input" value="male"
+                                    checked>
+                                <label class="custom-control-label" for="male">Masculino</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="female" name="gender" class="custom-control-input"
+                                    value="female">
+                                <label class="custom-control-label" for="female">Femenino</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="col-md-4">
+                                <input type="number" class="form-control" id="age" placeholder="Edad" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <select id="city" class="custom-select">
+                                <option selected>Ciudad</option>
+                                <option value="ciudad">Arica</option>
+                                <option value="ciudad">Valparaíso</option>
+                                <option value="ciudad">Concepción</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="country" class="custom-select">
+                                <option selected>Comuna</option>
+                                <option value="comuna">Quilicura</option>
+                                <option value="comuna">Las condes</option>
+                                <option value="comuna">Cerrillos</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label class="col col-form-label">Usted es poseedor de alguna alergia?</label>
+                        </div>
+                        <div class="col">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="yes" name="diabetes" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="yes">Si</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="no" name="diabetes" class="custom-control-input">
+                                <label class="custom-control-label" for="no">No</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="unknown" name="diabetes" class="custom-control-input">
+                                <label class="custom-control-label" for="unknown">No lo se</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <input type="date" class="form-control" id="Fecha" placeholder="Fecha" required>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="time" class="form-control" id="Hora" placeholder="Hora" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Agendar</button>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <ul id="record-list" class="list-group">
+
+            </ul>
         </div>
-        <form id="record-form">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" id="first-name" placeholder="Nombres" checked>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="last-name" placeholder="Apellidos" checked>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="Correo" placeholder="Correo" checked>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="male" name="gender" class="custom-control-input" value="male"
-                                checked>
-                            <label class="custom-control-label" for="male">Masculino</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="female" name="gender" class="custom-control-input" value="female">
-                            <label class="custom-control-label" for="female">Femenino</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="col-md-4">
-                            <input type="number" class="form-control" id="age" placeholder="Edad" min="0" required>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <select id="city" class="custom-select">
-                            <option selected>Ciudad</option>
-                            <option value="Kigali">Kigali</option>
-                            <option value="Nairobi">Nairobi</option>
-                            <option value="Bujumbura">Bujumbura</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select id="country" class="custom-select">
-                            <option selected>Región</option>
-                            <option value="Rwanda">Rwanda</option>
-                            <option value="kenya">kenya</option>
-                            <option value="Burundi">Burundi</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label class="col col-form-label">Usted es poseedor de alguna alergia?</label>
-                    </div>
-                    <div class="col">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="yes" name="diabetes" class="custom-control-input" checked>
-                            <label class="custom-control-label" for="yes">Si</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="no" name="diabetes" class="custom-control-input">
-                            <label class="custom-control-label" for="no">No</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="unknown" name="diabetes" class="custom-control-input">
-                            <label class="custom-control-label" for="unknown">No lo se</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </form>
 
-            <div class="form-group row">
-                <div class="col-sm-5">
-                    <input type="date" class="form-control" id="Fecha" placeholder="Fecha" required>
-                </div>
-                <div class="col-sm-5">
-                    <input type="time" class="form-control" id="Hora" placeholder="Hora" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Agendar</button>
-                </div>
-            </div>
-        </form>
-        <br>
-        <ul id="record-list" class="list-group">
-
-        </ul>
-    </div>
     <script src="app.js"></script>
 </body>
 

@@ -3,187 +3,174 @@
 {%load static%}
 
 <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-    <title>Dos alamos</title>
+  <title>Dos alamos</title>
 
-    <!-- slider stylesheet -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{% static 'core/css/style.css'%}" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'core/css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="hero_area">
-        <!-- header section strats -->
-        <header class="header_section">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="{% static 'core/IMG/logo.png' %}" alt="">
-                        <span>
-                            Dos alamos
-                        </span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand">
+            <img src="{% static 'core/IMG/logo.png' %}">
+            <span>
+              Dos alamos
+            </span>
+          </a>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
-                            <ul class="navbar-nav  ">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{% url 'home' %}">Inicio <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'Servicios' %}">Servicios </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'Doctores' %}">Doctores</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'clinica' %}"> clinica</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
-                                </li>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarCollapse">
-                                  <ul class="navbar-nav">
-                                    <li class="nav-item active">
-                                      <a class="nav-link" href="#">Inicio de Sesion</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">Registro Usuario</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'home' %}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'servicios' %}">Servicios </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'doctores' %}">Doctores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'clinica' %}"> clinica</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'sesion' %}">Inicio de Sesion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'registrarse' %}">Registro Usuario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'formulario' %}">Pedir hora</a>
+                </li>
+
+
             </div>
-        </header>
-        <!-- end header section -->
-        <!-- slider section -->
-        {% block Home %}
-        {% endblock %}
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    {% block Home %}
+    {% endblock %}
 
 
 
-        <!-- end map section -->
+    <!-- end map section -->
 
-        <!-- info section -->
+    <!-- info section -->
     <!-- info section -->
     <section class="info_section layout_padding2">
-        <div class="container">
-          <div class="info_items">
-            <a href="">
-              <div class="item ">
-                <div class="img-box box-1">
-                  <img src="{% static 'core/IMG/location-white.png' %}" alt="">
-                </div>
-                <div class="detail-box">
-                  <p>
-                    Av. Los pajaritos 123
-                  </p>
-                </div>
+      <div class="container">
+        <div class="info_items">
+          <a href="">
+            <div class="item ">
+              <div class="img-box box-1">
+                <img src="{% static 'core/IMG/location-white.png' %}">
               </div>
-            </a>
-            <a href="">
-              <div class="item ">
-                <div class="img-box box-2">
-                  <img src="{% static 'core/IMG/telephone-white.png' %}" alt="">
-                </div>
-                <div class="detail-box">
-                  <p>
-                    +52 1234567890
-                  </p>
-                </div>
+              <div class="detail-box">
+                <a>
+                  Av. Los pajaritos 123
+                </a>
               </div>
-            </a>
-            <a href="">
-              <div class="item ">
-                <div class="img-box box-3">
-                  <img src="{% static 'core/IMG/envelope-white.png' %}" alt="">
-                </div>
-                <div class="detail-box">
-                  <p>
-                    DosAlamos@dosalamos.cl
-                  </p>
-                </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="item ">
+              <div class="img-box box-2">
+                <img src="{% static 'core/IMG/telephone-white.png' %}">
               </div>
-            </a>
-          </div>
+              <div class="detail-box">
+                <a>+52 1234567890</a>
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="item ">
+              <div class="img-box box-3">
+                <img src="{% static 'core/IMG/envelope-white.png' %}">
+              </div>
+              <div class="detail-box">
+                <a>
+                  DosAlamos@dosalamos.cl
+                </a>
+              </div>
+            </div>
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-        <!-- end info_section -->
+    <!-- end info_section -->
 
-        <!-- footer section -->
-        <section class="container-fluid footer_section">
-            <p>
-                &copy; 2019 All Rights Reserved By
-                <a href="https://html.design/">Free Html Templates</a>
-            </p>
-        </section>
-        <!-- footer section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+      <p>
+        &copy; 2019 All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </section>
+    <!-- footer section -->
 
-        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
 
-        <script>
-            // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-            // Australia.
-            function initMap() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 11,
-                    center: {
-                        lat: -33.363386140608675,
-                        lng: -70.67823887028416
-                    },
-                });
+    <script>
+      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+      // Australia.
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {
+            lat: -33.363386140608675,
+            lng: -70.67823887028416
+          },
+        });
 
-                var image = 'images/maps-and-flags.png';
-                var beachMarker = new google.maps.Marker({
-                    position: {
-                        lat: -33.363386140608675,
-                        lng: -70.67823887028416
-                    },
-                    map: map,
-                    icon: image
-                });
-            }
-        </script>
-        <!-- google map js -->
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
-            </script>
-        <!-- end google map js -->
+        var image = 'images/maps-and-flags.png';
+        var beachMarker = new google.maps.Marker({
+          position: {
+            lat: -33.363386140608675,
+            lng: -70.67823887028416
+          },
+          map: map,
+          icon: image
+        });
+      }
+    </script>
+    <!-- google map js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
+    </script>
+    <!-- end google map js -->
 </body>
 </body>
 

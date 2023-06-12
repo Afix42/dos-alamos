@@ -4,15 +4,15 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'core/Home.html')
+    return render(request, 'core/home.html')
 
-def Servicios(request):
+def servicios(request):
     return render(request, 'core/service.html')
 
-def Registro(request):
-    return render(request, 'core/Registrarse.html')
+def registrarse(request):
+    return render(request, 'core/registrarse.html')
 
-def Doctores(request):
+def doctores(request):
     return render(request, 'core/doctores.html')
 
 def contacto(request):
@@ -21,9 +21,9 @@ def contacto(request):
 def clinica(request):
     return render(request, 'core/clinict.html')
 
-def Sesion(request):
-    return render(request, 'core/Sesion.html')
+def sesion(request):
+    return render(request, 'core/sesion.html')
 
-def Formulario(request):
-    return render(request, 'core/Formulario.html')
+def formulario(request):
+    return render(request, 'core/formulario.html')
 

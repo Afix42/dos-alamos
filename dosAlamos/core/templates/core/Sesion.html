@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-{%load static%} 
+{%load static%}
 
 <head>
     <!-- Basic -->
@@ -36,7 +36,7 @@
 <body class="sub_page">
 
 
-    
+
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
@@ -47,34 +47,34 @@
                 <div class="col-lg-12 login-title">
                     Iniciar sesion
                 </div>
-                
-
-                <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-control-label">Nombre de usuario</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">Contraseña</label>
-                                <input type="password" class="form-control" i>
-                            </div>
+                        <div class="col-lg-12 login-form">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-control-label">Nombre de usuario</label>
+                                    <input type="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Contraseña</label>
+                                    <input type="password" class="form-control" required i>
+                                </div>
 
-                            <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 login-btm login-text">
-                                    <!-- Error Message -->
+                                <div class="col-lg-12 loginbttm">
+                                    <div class="col-lg-6 login-btm login-text">
+                                        <!-- Error Message -->
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <a class="button" href="{% url 'home' %}">Volver</a>
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <button type="submit" class="btn btn-outline-primary"
+                                            href="{% url 'home' %}">Entrar</button>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary" href="{% url 'home' %}">Volver</button>
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary" href="{% url 'home' %}">Entrar</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
+
                 <div class="col-lg-3 col-md-2"></div>
             </div>
         </div>

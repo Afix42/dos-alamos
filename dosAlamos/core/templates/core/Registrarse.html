@@ -54,15 +54,15 @@
                         <form>
                             <div class="form-group">
                                 <label class="form-control-label">Nombre de usuario</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Contraseña</label>
-                                <input type="password" class="form-control" i>
+                                <input type="password" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Repita contraseña </label>
-                                <input type="password" class="form-control" i>
+                                <input type="password" class="form-control"required>
                             </div>
 
                             <div class="col-lg-12 loginbttm">
@@ -70,10 +70,10 @@
                                     <!-- Error Message -->
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button  class="btn btn-outline-primary" href="{% url 'home' %}">Volver</button>
+                                    <a class="button" href="{% url 'home' %}">Volver</a>
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button  class="btn btn-outline-primary" href="{% url 'home' %}">Crear sesión</button>
+                                    <button  class="btn btn-outline-primary" href="{% url 'home' %}">Crear cuenta</button>
                                 </div>
 
                             </div>

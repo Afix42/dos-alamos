@@ -2,6 +2,7 @@ body {
   font-family: "Poppins", sans-serif;
   color: #0c0c0c;
   background-color: #ffffff;
+  
 }
 
 .layout_padding {
@@ -583,6 +584,10 @@ a:focus {
   margin-bottom: 20px; /* Add spacing between cards */
 }
 
+.card p{
+  text-align: center;
+}
+
 .textos {
   text-align: center;
   font-family: "Arial", sans-serif;
@@ -593,3 +598,4 @@ a:focus {
   text-transform: uppercase;
   margin-bottom: 20px;
 }
+

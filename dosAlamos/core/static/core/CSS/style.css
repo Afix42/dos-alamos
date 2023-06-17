@@ -587,6 +587,30 @@ a:focus {
 .card p{
   text-align: center;
 }
+@media (min-width: 576px) {
+  .imgdoctores {
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .imgdoctores {
+    height: 200px;
+
+}
+
+@media (min-width: 992px) {
+  .imgdoctores {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .imgdoctores {
+    height: 200px;
+  }
+}
+
 
 .textos {
   text-align: center;
@@ -599,3 +623,13 @@ a:focus {
   margin-bottom: 20px;
 }
 
+.tabla { 
+  margin-top: 50px;
+}
+
+
+
+
+
+
+}

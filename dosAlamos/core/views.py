@@ -27,3 +27,6 @@ def sesion(request):
 def formulario(request):
     return render(request, 'core/formulario.html')
 
+def citas(request):
+    return render(request, 'core/citas.html')
+

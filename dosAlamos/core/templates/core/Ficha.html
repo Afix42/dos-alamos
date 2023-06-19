@@ -1,0 +1,101 @@
+{% extends 'core/index.html' %}
+{% load static %}
+{% block Home %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<body class="body">
+    <div class="nav-body">
+        <h1>Ficha medica</h1>
+        <h2 class="nav-item-name">Nombre y apellido</h2>
+        <ol class="list-group">
+            <li class="list-group-item">Alonzo Inostrosa</li>
+        </ol>
+        <h2 class="nav-item-name">Información extra</h2>
+        <ol class="list-group">
+            <li class="list-group-item">Edad: 20</li>
+            <li class="list-group-item">Correo: masasmdn@gmail.com</li>
+            <li class="list-group-item">Dia pedido: 7 de julio</li>
+            <li class="list-group-item">Hora: 13:00</li>
+            <li class="list-group-item">Sexo: Masculino</li>
+        </ol>
+        <h2 class="nav-item-name">Comentario del Doctor</h2>
+        <textarea name="Dcomentario" id="comentarioM" cols="100" rows="5"></textarea>
+        <div class="d-flex justify-content-center mt-3 md-3 p-5">
+            <button type="button" class="btn btn-primary btn-lg citas">
+                Finalizar caso
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    .body {
+        background-color: #f0f0f0;
+    }
+
+    .nav-header {
+        background-color: #306db2;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .nav-header-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        list-style: none;
+        padding: 15px;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    .nav-header-items>li a {
+        color: white;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        padding-right: 20px;
+        font: 14px arial;
+    }
+
+    .nav-body {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .nav-note {
+        border-style: solid;
+        border-color: #f9f9f9;
+        border-width: 3px;
+        background: #e6e8ed;
+        padding: 7px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        color: #56585b;
+    }
+
+    .nav-item-name {
+        font-size: 25px;
+        font-color: #212123;
+    }
+
+    .list-group {
+        padding: 5px 5px 25px 5px;
+        font-size: 17px;
+        border-color: #5b5c5e;
+        border-width: 1px;
+    }
+</style>
+{% endblock %}

@@ -30,3 +30,9 @@ def formulario(request):
 def citas(request):
     return render(request, 'core/citas.html')
 
+def pacientes(request):
+    return render(request, 'core/pacientes.html')
+
+def ficha(request):
+    return render(request, 'core/ficha.html')
+

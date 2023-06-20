@@ -15,4 +15,8 @@ def set_default_rol(sender, instance, created, **kwargs):
 models.signals.post_save.connect(set_default_rol, sender=User)
 
 
+class Comuna(models.Model):
+    nombreComuna = models.CharField(max_length=25, verbose_name='El nombre de la comuna')
+    def __str__(self):
+        return self.nombreComuna
     

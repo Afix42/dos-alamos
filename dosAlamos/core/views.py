@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -45,4 +48,48 @@ def vista_paciente(request):
 def vista_secretaria(request):
     return render(request, 'core/vista_secretaria.html')
 
+def registro_view(request):
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        password = request.POST['password']
+        repeat_password = request.POST['repeatPassword']
+
+        if password == repeat_password:
+            try:
+                # Crea un nuevo usuario utilizando la tabla User de Django
+                user = User.objects.create_user(username=nombre, password=password)
+                # Agrega los campos personalizados al usuario
+                user.first_name = nombre
+                user.save()
+                # Inicia sesión automáticamente después del registro
+                user = authenticate(request, username=nombre, password=password)
+                login(request, user)
+                return redirect('login')  # Redirige a la página de inicio después del registro exitoso
+            except Exception as e:
+                messages.error(request, f'Error al registrar el usuario: {str(e)}')
+        else:
+            messages.error(request, 'Las contraseñas no coinciden')
+
+    return render(request, 'core/Registrarse.html')
+
+
+
+def funcion_login(request):
+    if request.method == 'POST':
+        username = request.POST['nombre']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            if user.rol.nombreRol == 'Medico':
+                return redirect('vista_medico')  # Redirige al médico (administrador) a la vista de administrador
+            elif user.rol.nombreRol == 'Secretaria':
+                return redirect('vista_secretaria')  # Redirige a la secretaria a la vista de secretaria
+            else:
+                return redirect('vista_paciente')  # Redirige al paciente a la vista de paciente
+
+        messages.error(request, 'El usuario y/o contraseña no coinciden o no existen.')
+        return render(request, 'core/Sesion.html')
+
+    return render(request, 'core/Sesion.html')
 

@@ -48,6 +48,9 @@ def vista_paciente(request):
 def vista_secretaria(request):
     return render(request, 'core/vista_secretaria.html')
 
+def horas(request):
+    return render(request, 'core/horas.html')
+
 def registro_view(request):
     if request.method == 'POST':
         nombre = request.POST['nombre']

@@ -36,3 +36,13 @@ def pacientes(request):
 def ficha(request):
     return render(request, 'core/ficha.html')
 
+def vista_medico(request):
+    return render(request, 'core/vista_medico.html')
+
+def vista_paciente(request):
+    return render(request, 'core/vista_paciente.html')
+
+def vista_secretaria(request):
+    return render(request, 'core/vista_secretaria.html')
+
+

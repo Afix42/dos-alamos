@@ -49,7 +49,7 @@
                 <a class="nav-link" href="{% url 'vista_medico' %}">Inicio <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'pacientes' %}">Pacientes</a>
+                <a class="nav-link" href="{% url 'pacientes' user_id %}">Pacientes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Cerrar Sesion</a>
@@ -121,45 +121,19 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">Selecccionar</th>
             <th scope="col">Nombre completo paciente</th>
             <th scope="col">Fecha y hora atencion medica</th>
             <th scope="col">Ficha</th>
           </tr>
         </thead>
         <tbody>
+          {% for h in horaTomada %}
           <tr>
-            <td><input type="checkbox" /></td>
-            <td>Emily Johnson</td>
-            <td>5 de julio de 2023, 3:30 PM</td>
+            <td>{{h.nombrePaciente}} {{h.apellidoPaciente}}</td>
+            <td>{{h.fecha_creacion}}</td>
             <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
           </tr>
-          <tr>
-          <tr>
-            <td><input type="checkbox" /></td>
-            <td>Emily Johnson</td>
-            <td>5 de julio de 2023, 3:30 PM</td>
-            <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" /></td>
-            <td>Emily Johnson</td>
-            <td>5 de julio de 2023, 3:30 PM</td>
-            <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" /></td>
-            <td>Emily Johnson</td>
-            <td>5 de julio de 2023, 3:30 PM</td>
-            <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" /></td>
-            <td>Emily Johnson</td>
-            <td>5 de julio de 2023, 3:30 PM</td>
-            <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
-
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
       <div class="d-flex justify-content-center mt-3 md-3 p-5">

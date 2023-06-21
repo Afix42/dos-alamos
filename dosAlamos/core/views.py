@@ -54,14 +54,24 @@ def citas(request, id):
     }
     return render(request, 'core/citas.html', data)
 
-def pacientes(request):
-    return render(request, 'core/pacientes.html')
+def pacientes(request, id):
+    usuario = get_object_or_404(User, pk=id)
+    horaTomada = HoraTomada.objects.filter(doctor=id, estado='cerrado')
+    user_id = request.user.id  # Obtener el ID del usuario logueado
+    data = {
+        'usuario':usuario,
+        'horaTomada':horaTomada,
+        'user_id': user_id
+    }
+    return render(request, 'core/pacientes.html',data)
 
 def ficha(request):
     return render(request, 'core/ficha.html')
 
 def vista_medico(request):
-    return render(request, 'core/vista_medico.html')
+    user_id = request.user.id  # Obtener el ID del usuario logueado
+    context = {'user_id': user_id}
+    return render(request, 'core/vista_medico.html',context)
 
 @login_required
 def vista_paciente(request):

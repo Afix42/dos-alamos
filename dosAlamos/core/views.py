@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Rol, Comuna, HoraTomada
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -62,8 +63,11 @@ def ficha(request):
 def vista_medico(request):
     return render(request, 'core/vista_medico.html')
 
+@login_required
 def vista_paciente(request):
-    return render(request, 'core/vista_paciente.html')
+    user_id = request.user.id  # Obtener el ID del usuario logueado
+    context = {'user_id': user_id}
+    return render(request, 'core/vista_paciente.html', context)
 
 def vista_secretaria(request):
     return render(request, 'core/vista_secretaria.html')

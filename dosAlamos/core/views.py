@@ -46,11 +46,11 @@ def formulario(request, id):
 
 def citas(request, id):
     usuario = get_object_or_404(User, pk=id)
-    horaTomada = HoraTomada.objects.all()
+    horas_abiertas = HoraTomada.objects.filter(estado='abierto')
 
     data = {
         'usuario':usuario,
-        'horaTomada':horaTomada
+        'horas_abiertas':horas_abiertas
     }
     return render(request, 'core/citas.html', data)
 

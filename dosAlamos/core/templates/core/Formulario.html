@@ -120,6 +120,7 @@
         <div class="center" style="margin-bottom: 50px; margin-top: 50px;">
             <h1>Pedir Hora</h1>
             <form class="my-form" action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
@@ -140,25 +141,25 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="row">
-                        <div class="col">
-                            <select id="city" class="custom-select">
-                                <option value="">Doctores</option>
-                                {% for d in medico %}
-                                <option value="d.id">{{d.first_name}} {{d.last_name}}</option> <!-- en las parentecis inventar de que rama es el doctor,general h¿ginecologia etc -->
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="country" class="custom-select">
-                                <option selected>Comuna</option>
-                                <option value="comuna">Quilicura</option>
-                                <option value="comuna">Las condes</option>
-                                <option value="comuna">Cerrillos</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                  <div class="row">
+                      <div class="col">
+                          <select id="medico" name=medico class="custom-select">
+                              <option value="">Doctores</option>
+                              {% for d in medico %}
+                              <option value="{{ d.id }}">{{ d.first_name }} {{ d.last_name }}</option>
+                              {% endfor %}
+                          </select>
+                      </div>
+                      <div class="col">
+                        <select id="comuna" class="custom-select">
+                          <option selected>Comuna</option>
+                          {% for c in comuna %}
+                          <option value="{{c.id}}">{{c.nombreComuna}}</option>
+                          {%endfor%}
+                      </select>
+                      </div>
+                  </div>
+              </div>
                 <div class="form-group row">
                     <div class="col-sm-5">
                         <input type="date" class="form-control" id="Fecha" placeholder="Fecha" required>

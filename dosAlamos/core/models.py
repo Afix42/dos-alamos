@@ -2,8 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 
 class Rol(models.Model):
+    ROLES = (
+        ('Paciente', 'Paciente'),
+        ('Medico', 'Medico'),
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='rol', null=True)
-    nombreRol = models.CharField(max_length=25, verbose_name='El nombre del rol de usuario')
+    nombreRol = models.CharField(max_length=25, choices=ROLES, default='Paciente', verbose_name='El nombre del rol de usuario')
 
     def __str__(self):
         return self.nombreRol
@@ -41,3 +45,14 @@ class CustomUser(AbstractUser):
         help_text='Specific permissions for this user.',
         related_query_name='customuser'
     )
+
+class HoraTomada(models.Model):
+    paciente = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Paciente', null=True, related_name='horas_paciente')
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    hora = models.DateTimeField(auto_now_add=True)
+    doctor = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Medico', null=True, related_name='horas_doctor')
+    ESTADO_CHOICES = (
+        ('abierto', 'Abierto'),
+        ('cerrado', 'Cerrado'),
+    )
+    estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='abierto')

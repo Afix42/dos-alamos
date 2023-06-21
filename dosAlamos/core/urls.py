@@ -21,4 +21,5 @@ urlpatterns = [
     path('registro_view',registro_view,name='registro_view'),
     path('funcion_login',funcion_login,name='funcion_login'),
     path('horas/',horas,name="horas"),
+
 ]

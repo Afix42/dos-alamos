@@ -58,26 +58,19 @@ def registro_view(request):
         password = request.POST['password']
         repeat_password = request.POST['repeatPassword']
         email = request.POST['email']
-        edad = request.POST['edad']
-        
         if password == repeat_password:
             try:
-                # Verificar si el nombre de usuario ya existe
-                if User.objects.filter(username=nombre).exists():
-                    messages.error(request, 'El nombre de usuario ya está en uso')
-                else:
-                    # Crear un nuevo usuario utilizando el nombre de usuario
-                    user = User.objects.create_user(username=nombre, password=password)
-                    # Agregar los campos personalizados al usuario
-                    user.first_name = nombre
-                    user.last_name = apellido
-                    user.email = email
-                    user.edad = edad
-                    user.save()
-                    # Iniciar sesión automáticamente después del registro
-                    user = authenticate(request, username=nombre, password=password)
-                    login(request, user)
-                    return redirect('login')  # Redirigir a la página de inicio después del registro exitoso
+                # Crea un nuevo usuario utilizando la tabla User de Django
+                user = User.objects.create_user(username=nombre, password=password)
+                # Agrega los campos personalizados al usuario
+                user.first_name = nombre
+                user.last_name = apellido
+                user.email = email
+                user.save()
+                # Inicia sesión automáticamente después del registro
+                user = authenticate(request, username=nombre, password=password)
+                login(request, user)
+                return redirect('login')  # Redirige a la página de inicio después del registro exitoso
             except Exception as e:
                 messages.error(request, f'Error al registrar el usuario: {str(e)}')
         else:

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-{%load static%} 
+{%load static%}
 
 <head>
     <!-- Basic -->
@@ -34,6 +34,22 @@
 </head>
 
 <body class="sub_page">
+    <script>
+        function validarContrasena() {
+            var password = document.getElementById("password").value;
+            var repeatPassword = document.getElementById("repeatPassword").value;
+
+            if (password !== repeatPassword) {
+                alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+                return false;
+            }
+
+            if (!/(?=.*[A-Z]).{1,9}/.test(password)) {
+                alert("La contraseña debe tener al menos 1 letra mayúscula y debe ser minimo 9 dígitos.");
+                return false;
+            }
+        }
+    </script>
 
 
     </div>
@@ -49,7 +65,8 @@
                 </div>
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
-                        <form action="{% url 'registro_view' %}" class="form" id="form" autocomplete="off" method="POST">
+                        <form action="{% url 'registro_view' %}" class="form" id="form" autocomplete="off"
+                            method="POST" onsubmit="return validarContrasena()">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="form-control-label">Nombre</label>
@@ -65,24 +82,29 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Contraseña</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Repita contraseña </label>
-                                <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" required>
+                                <input type="password" class="form-control" id="repeatPassword" name="repeatPassword"
+                                    required>
                             </div>
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-6 login-btm login-text">
                                     <!-- Error Message -->
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <a class="button" href="{% url 'home' %}">Volver</a>
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button  class="btn btn-outline-primary" href="{% url 'home' %}">Crear cuenta</button>
-                                </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <a class="button" href="{% url 'sesion' %}">Iniciar sesion</a>
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <a class="button" href="{% url 'home' %}">Volver</a>
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <button class="btn btn-outline-primary" href="{% url 'home' %}">Crear
+                                            cuenta</button>
+                                    </div>
 
-                            </div>
+                                </div>
                         </form>
                     </div>
                 </div>

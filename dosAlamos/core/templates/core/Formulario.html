@@ -119,31 +119,31 @@
     <div class="centro">
         <div class="center" style="margin-bottom: 50px; margin-top: 50px;">
             <h1>Pedir Hora</h1>
-            <form class="my-form" action="" method="post" enctype="multipart/form-data">
+            <form class="my-form" action="{% url 'guardar_hora' %}" method="post" enctype="multipart/form-data">
               {% csrf_token %}
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="first-name" placeholder="nombre" disabled value="{{usuario.first_name}}">
+                            <input type="text" class="form-control" id="first-name" name="nombrePaciente" placeholder="nombre" disabled value="{{usuario.first_name}}">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="last-name" placeholder="Apellidos" disabled value="{{usuario.last_name}}">
+                            <input type="text" class="form-control" id="apellidoPaciente" name="apellidoPaciente" placeholder="Apellidos" disabled value="{{ usuario.last_name }}">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="Correo" placeholder="Correo" disabled value="{{usuario.email}}">
+                            <input type="text" class="form-control" id="Correo" name="correoPaciente" placeholder="Correo" disabled value="{{usuario.email}}">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                   <div class="row">
                       <div class="col">
-                          <select id="medico" name=medico class="custom-select">
+                          <select id="medico" name="medico" class="custom-select">
                               <option value="">Doctores</option>
                               {% for d in medico %}
                               <option value="{{ d.id }}">{{ d.first_name }} {{ d.last_name }}</option>
@@ -151,7 +151,7 @@
                           </select>
                       </div>
                       <div class="col">
-                        <select id="comuna" class="custom-select">
+                        <select id="comuna" name="nombreComuna" class="custom-select">
                           <option selected>Comuna</option>
                           {% for c in comuna %}
                           <option value="{{c.id}}">{{c.nombreComuna}}</option>
@@ -162,10 +162,10 @@
               </div>
                 <div class="form-group row">
                     <div class="col-sm-5">
-                        <input type="date" class="form-control" id="Fecha" placeholder="Fecha" required>
+                        <input type="date" class="form-control" name="Fecha" placeholder="Fecha" required>
                     </div>
                     <div class="col-sm-5">
-                        <input type="time" class="form-control" id="Hora" placeholder="Hora" required>
+                        <input type="time" class="form-control" name="Hora" placeholder="Hora" required>
                     </div>
                 </div>
                 <br>

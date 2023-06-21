@@ -47,7 +47,10 @@ class CustomUser(AbstractUser):
     )
 
 class HoraTomada(models.Model):
-    paciente = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Paciente', null=True, related_name='horas_paciente')
+    nombrePaciente = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Paciente', null=True, related_name='horas_paciente')
+    apellidoPaciente = models.CharField(max_length=50, verbose_name='Apellido del paciente',null=True)
+    nombreComuna = models.CharField(max_length=50, verbose_name='Comuna del paciente',null=True)
+    correoPaciente = models.CharField(max_length=50, verbose_name='Correo del paciente',null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     hora = models.DateTimeField(auto_now_add=True)
     doctor = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Medico', null=True, related_name='horas_doctor')

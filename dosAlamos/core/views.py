@@ -132,4 +132,35 @@ def funcion_login(request):
 
     return render(request, 'core/Sesion.html')
 
-
+def guardar_hora(request):
+    if request.method == 'POST':
+        paciente = request.user
+        medico_id = request.POST.get('medico')
+        fecha = request.POST.get('Fecha')
+        hora = request.POST.get('Hora')
+        apellido_paciente = request.POST.get('apellidoPaciente')  # Modificación aquí
+        nombre_comuna = request.POST.get('nombreComuna')  # Modificación aquí
+        
+        if medico_id and fecha and hora:
+            try:
+                medico = User.objects.get(id=medico_id)
+                hora_tomada = HoraTomada(
+                    nombrePaciente=paciente,
+                    apellidoPaciente=apellido_paciente,
+                    nombreComuna=nombre_comuna,
+                    correoPaciente=paciente.email,  # Nuevo campo añadido
+                    hora=hora,
+                    doctor=medico,
+                    estado='abierto'
+                )
+                hora_tomada.save()
+                messages.success(request, 'La hora ha sido reservada exitosamente.')
+                return redirect('vista_paciente')
+            except User.DoesNotExist:
+                messages.error(request, 'No se encontró el médico seleccionado.')
+        else:
+            messages.error(request, 'Debe completar todos los campos del formulario.')
+    else:
+        messages.error(request, 'El formulario debe ser enviado mediante el método POST.')
+    
+    return render(request, 'core/Formulario.html')

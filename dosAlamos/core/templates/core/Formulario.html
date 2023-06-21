@@ -57,7 +57,7 @@
                 <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'formulario' %}">Pedir Hora</a>
+                <a class="nav-link" href="formulario/{{id}}">Pedir Hora</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Cerrar Sesion</a>
@@ -123,19 +123,19 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="first-name" placeholder="Nombres" checked>
+                            <input type="text" class="form-control" id="first-name" placeholder="nombre" disabled value="{{usuario.first_name}}">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="last-name" placeholder="Apellidos" checked>
+                            <input type="text" class="form-control" id="last-name" placeholder="Apellidos" disabled value="{{usuario.last_name}}">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" id="Correo" placeholder="Correo" checked>
+                            <input type="text" class="form-control" id="Correo" placeholder="Correo" disabled value="{{usuario.email}}">
                         </div>
                     </div>
                 </div>
@@ -143,11 +143,10 @@
                     <div class="row">
                         <div class="col">
                             <select id="city" class="custom-select">
-                                <option selected>Doctores</option>
-                                <option value="ciudad">doctor1 ()</option> <!-- en las parentecis inventar de que rama es el doctor,general h¿ginecologia etc -->
-                                <option value="ciudad">doctor2</option>
-                                <option value="ciudad">doctor3</option>
-                                
+                                <option value="">Doctores</option>
+                                {% for d in medico %}
+                                <option value="d.id">{{d.first_name}} {{d.last_name}}</option> <!-- en las parentecis inventar de que rama es el doctor,general h¿ginecologia etc -->
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="col">

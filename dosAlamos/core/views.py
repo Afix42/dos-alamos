@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -27,8 +27,17 @@ def clinica(request):
 def sesion(request):
     return render(request, 'core/sesion.html')
 
-def formulario(request):
-    return render(request, 'core/formulario.html')
+def formulario(request, id):
+    usuario = get_object_or_404(User, pk=id)
+    medico = User.objects.filter(rol='14')
+
+    data = {
+        'usuario':usuario,
+        'medico':medico
+    }
+
+
+    return render(request, 'core/formulario.html', data)
 
 def citas(request):
     return render(request, 'core/citas.html')

@@ -43,8 +43,15 @@ def formulario(request, id):
 
     return render(request, 'core/formulario.html', data)
 
-def citas(request):
-    return render(request, 'core/citas.html')
+def citas(request, id):
+    usuario = get_object_or_404(User, pk=id)
+    horaTomada = HoraTomada.objects.filter(doctor=id)
+
+    data = {
+        'usuario':usuario,
+        'horaTomada':horaTomada
+    }
+    return render(request, 'core/citas.html', data)
 
 def pacientes(request):
     return render(request, 'core/pacientes.html')
@@ -164,3 +171,12 @@ def guardar_hora(request):
         messages.error(request, 'El formulario debe ser enviado mediante el método POST.')
     
     return render(request, 'core/Formulario.html')
+
+
+def eliminar_pacientes(request, id):
+    horaT = HoraTomada.objects.get(pk = id)
+    horaT.delete()
+    messages.success(request, 'Hora rechazada.')
+
+    return redirect('citas', id)    
+

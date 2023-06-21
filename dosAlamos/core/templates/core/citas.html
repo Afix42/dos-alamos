@@ -47,7 +47,7 @@
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'vista_secretaria' %}">Inicio <span class="sr-only">(current)</span></a>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'citas' %}">Citas Medicas</a>
+                <a class="nav-link" href="citas/{{usuario.id}}">Citas Medicas</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Cerrar Sesion</a>
@@ -113,67 +113,33 @@
       border-width: .2rem;
     }
   </style>
-
   <div class="tabla">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Selecccionar</th>
           <th scope="col">Nombre completo paciente</th>
           <th scope="col">Fecha y hora atencion medica</th>
           <th scope="col">Doctor seleccionado</th>
         </tr>
       </thead>
       <tbody>
+        {%for h in horaTomada%}
         <tr>
-          <td><input type="checkbox" /></td>
-          <td>Emily Johnson</td>
-          <td>5 de julio de 2023, 3:30 PM</td>
-          <td>Juan soto</td>
+          <td>{{h.nombrePaciente}} {{h.apellidoPaciente}}</td>
+          <td>{{h.fecha_creacion}}</td>
+          <td>{{h.doctor}} {{usuario.last_name}}</td>
+          <td><a type="button" class="btn btn-primary btn-lg citas m-3" href="{% url 'eliminar_pacientes' id=h.id %}">Rechazar Citas Medicas</a></td>
         </tr>
-        <tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td>Emily Johnson</td>
-          <td>5 de julio de 2023, 3:30 PM</td>
-          <td>Juan soto</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td>Emily Johnson</td>
-          <td>5 de julio de 2023, 3:30 PM</td>
-          <td>Juan soto</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td>Emily Johnson</td>
-          <td>5 de julio de 2023, 3:30 PM</td>
-          <td>Juan soto</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" /></td>
-          <td>Emily Johnson</td>
-          <td>5 de julio de 2023, 3:30 PM</td>
-          <td>Juan soto</td>
-        </tr>
+        {%endfor%}
       </tbody>
     </table>
-    <div>
-      
-    </div>
     <div class="d-flex justify-content-center mt-3 md-3 p-5">
-      <button type="button" class="btn btn-primary btn-lg citas m-3">
-        Aceptar Citas Medicas
-      </button>
-        <button type="button" class="btn btn-primary btn-lg citas m-3">
-        Rechazar Citas Medicas
-      </button>
+      <button type="submit" class="btn btn-primary btn-lg citas m-3">Aceptar Citas Medicas</button>
+      
     </div>
-      
-      
-    
+    </div>
 
-  </div>
+
   <script src="app.js"></script>
 </body>
 

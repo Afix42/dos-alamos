@@ -47,39 +47,42 @@
                 <div class="col-lg-12 login-title">
                     Iniciar sesion
                 </div>
+                <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
-                        <div class="col-lg-12 login-form">
-                            <form action="{% url 'funcion_login' %}" class="form" id="form" method="POST">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <label class="form-control-label">Nombre de usuario</label>
-                                    <input type="name" class="form-control" id="nombre" name="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" name="password" required>
-                                </div>
+                        <form action="{% url 'funcion_login' %}" class="form" id="form" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-control-label">Nombre de usuario</label>
+                                <input type="name" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    pattern=".{9,}" title="La contraseña debe tener al menos 10 caracteres"
+                                    required>
+                            </div>
 
-                                <div class="col-lg-12 loginbttm">
-                                    <div class="col-lg-6 login-btm login-text">
-                                        <!-- Error Message -->
-                                    </div>
-                                    <div class="col-lg-6 login-btm login-button">
-                                        <a class="button" href="{% url 'home' %}">Volver</a>
-                                    </div>
-                                    <div class="col-lg-6 login-btm login-button">
-                                        <button type="submit" class="btn btn-outline-primary"
-                                            href="{% url 'home' %}">Entrar</button>
-                                        <div>
-                                            <div class="col-lg-6 login-btm login-button">
-                                                <a class="button" href="{% url 'registrarse' %}">Registrarse</a>
-                                            </div>
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                    <!-- Error Message -->
+                                    <div>
+                                        <div class="col-lg-6 login-btm login-button">
+                                            <a class="button" href="{% url 'registrarse' %}">Registrarse</a>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <a class="button" href="{% url 'home' %}">Volver</a>
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <button type="submit" class="btn btn-outline-primary"
+                                        href="{% url 'home' %}">Entrar</button>
+
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
                 <div class="col-lg-3 col-md-2"></div>
             </div>

@@ -5,6 +5,7 @@ class Rol(models.Model):
     ROLES = (
         ('Paciente', 'Paciente'),
         ('Medico', 'Medico'),
+        ('Secretaria','Secretaria'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='rol', null=True)
     nombreRol = models.CharField(max_length=25, choices=ROLES, default='Paciente', verbose_name='El nombre del rol de usuario')

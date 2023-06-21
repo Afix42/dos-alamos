@@ -46,7 +46,7 @@ def formulario(request, id):
 
 def citas(request, id):
     usuario = get_object_or_404(User, pk=id)
-    horaTomada = HoraTomada.objects.filter(doctor=id)
+    horaTomada = HoraTomada.objects.all()
 
     data = {
         'usuario':usuario,
@@ -70,7 +70,9 @@ def vista_paciente(request):
     return render(request, 'core/vista_paciente.html', context)
 
 def vista_secretaria(request):
-    return render(request, 'core/vista_secretaria.html')
+    user_id = request.user.id  # Obtener el ID del usuario logueado
+    context = {'user_id': user_id}
+    return render(request, 'core/vista_secretaria.html', context)
 
 def horas(request):
     return render(request, 'core/horas.html')
@@ -180,7 +182,16 @@ def guardar_hora(request):
 def eliminar_pacientes(request, id):
     horaT = HoraTomada.objects.get(pk = id)
     horaT.delete()
+    secretaria = get_object_or_404(User, pk=27)  # Obtener el usuario secretaria con ID 27
     messages.success(request, 'Hora rechazada.')
 
-    return redirect('citas', id)    
+    return redirect('citas', secretaria.pk)
 
+def aceptar_hora(request, id):
+    horaT = HoraTomada.objects.get(pk = id)
+    horaT.estado = 'cerrado'
+    horaT.save()
+    secretaria = get_object_or_404(User, pk=27)  # Obtener el usuario secretaria con ID 27
+    messages.success(request, 'Hora aprobada.')
+
+    return redirect('citas', secretaria.pk)

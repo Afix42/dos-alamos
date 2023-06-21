@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from .views import home, servicios, registrarse, contacto, clinica,doctores,sesion,formulario, citas,pacientes,ficha, vista_medico, vista_paciente,\
-     vista_secretaria,registro_view,funcion_login,horas,guardar_hora, eliminar_pacientes
+     vista_secretaria,registro_view,funcion_login,horas,guardar_hora, eliminar_pacientes,aceptar_hora
 
 
 urlpatterns = [
@@ -13,7 +13,7 @@ urlpatterns = [
     path('doctores/', doctores, name="doctores"),
     path('sesion/', sesion, name="sesion"),
     path('vista_paciente/formulario/<int:id>/', formulario, name="formulario"),
-    path('citas/<id>/', citas, name="citas"),
+    path('vista_secretaria/citas/<id>/', citas, name="citas"),
     path('pacientes/', pacientes, name="pacientes"),
     path('ficha/', ficha, name="ficha"),
     path('vista_paciente/', vista_paciente, name="vista_paciente"),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('horas/', horas, name="horas"),
     path('guardar_hora', guardar_hora, name="guardar_hora"),
     path('eliminar_pacientes/<id>/', eliminar_pacientes, name='eliminar_pacientes'),
+    path('aceptar_hora/<id>/', aceptar_hora, name='aceptar_hora'),
 ]

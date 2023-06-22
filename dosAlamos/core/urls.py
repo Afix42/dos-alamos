@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from .views import home, servicios, registrarse, contacto, clinica,doctores,sesion,formulario, citas,pacientes,ficha, vista_medico, vista_paciente,\
-     vista_secretaria,registro_view,funcion_login,horas,guardar_hora, eliminar_pacientes,aceptar_hora,mostrar_horas_tomadas
+     vista_secretaria,registro_view,funcion_login,funcion_logout,horas,guardar_hora, eliminar_pacientes,aceptar_hora,mostrar_horas_tomadas
 
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     path('vista_secretaria/', vista_secretaria, name="vista_secretaria"),
     path('registro_view', registro_view, name='registro_view'),
     path('funcion_login', funcion_login, name='funcion_login'),
+    path('funcion_logout', funcion_logout, name='funcion_logout'),
     path('horas/', horas, name="horas"),
     path('guardar_hora', guardar_hora, name="guardar_hora"),
     path('eliminar_pacientes/<id>/', eliminar_pacientes, name='eliminar_pacientes'),

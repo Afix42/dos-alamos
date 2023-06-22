@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Rol, Comuna, HoraTomada
@@ -145,6 +145,9 @@ def registro_view(request):
 
     return render(request, 'core/Registrarse.html')
 
+def funcion_logout(request):
+    logout(request)
+    return redirect('home')
 
 
 def funcion_login(request):
@@ -224,3 +227,4 @@ def cancelar_hora(request, id):
     messages.success(request, 'Hora cancelada.')
 
     return redirect('mostrar_horas_tomadas', usuario.pk)
+

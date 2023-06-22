@@ -59,11 +59,19 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
               </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="formulario/{{id}}">Pedir hora</a>
+              </li>
+              {% endif %}
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="{% url 'sesion' %}">Inicio de Sesion</a>
                 <a class="dropdown-item" href="{% url 'registrarse' %}">Registro Usuario</a>
                 <div class="dropdown-divider"></div>
+
+               
                 <a class="dropdown-item" href="formulario/{{id}}">Pedir hora</a>
+
               </div>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'sesion' %}">Inicio de Sesion</a>

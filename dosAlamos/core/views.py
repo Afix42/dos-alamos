@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import Rol, Comuna, HoraTomada
+from .models import Rol, Comuna, HoraTomada, FichaMedica
 from django.contrib.auth.decorators import login_required
+from .forms import FormFicha
 # Create your views here.
 
 
@@ -76,8 +77,6 @@ def pacientes(request, id):
     }
     return render(request, 'core/pacientes.html',data)
 
-def ficha(request):
-    return render(request, 'core/ficha.html')
 
 def vista_medico(request):
     user_id = request.user.id  # Obtener el ID del usuario logueado
@@ -228,3 +227,26 @@ def cancelar_hora(request, id):
 
     return redirect('mostrar_horas_tomadas', usuario.pk)
 
+def CrearFicha(request):
+    data = {
+        'form': FormFicha()
+    }
+    if request.method == 'POST':
+        form = FormFicha(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Agregado correctamente")
+            return redirect(to=ficha)
+        else:
+            data["form"] = form
+    return render(request, 'core/CrearFicha.html', data)
+
+def MostrarFicha(request, hora_tomada_id):
+    ficha_medica = FichaMedica.objects.get(hora_tomada_id=hora_tomada_id)
+    data = {
+        'ficha_medica': ficha_medica
+    }
+    return render(request, 'core/Ficha.html', data)
+
+def ficha(request):
+    return render(request, 'core/ficha.html')

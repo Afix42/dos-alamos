@@ -14,26 +14,27 @@
 </head>
 
 <body class="body">
-    <div class="nav-body">
-        <h1>Ficha medica</h1>
+    <div class="nav-body" style="margin-bottom: 20px;">
+        <br>
+        <center><h1>Ficha medica</h1></center>
         <h2 class="nav-item-name">Nombre y apellido</h2>
         <ol class="list-group">
-            <li class="list-group-item">Alonzo Inostrosa</li>
+            <li class="list-group-item">{{ ficha_medica.nombrePaciente }} {{ ficha_medica.apellidoPaciente }}</li>
         </ol>
-        <h2 class="nav-item-name">Información extra</h2>
+        <h2 class="nav-item-name">Correo</h2>
         <ol class="list-group">
-            <li class="list-group-item">Edad: 20</li>
-            <li class="list-group-item">Correo: masasmdn@gmail.com</li>
-            <li class="list-group-item">Dia pedido: 7 de julio</li>
-            <li class="list-group-item">Hora: 13:00</li>
-            <li class="list-group-item">Sexo: Masculino</li>
+            <li class="list-group-item">{{ ficha_medica.correoPaciente }}</li>
         </ol>
-        <h2 class="nav-item-name">Comentario del Doctor</h2>
-        <textarea name="Dcomentario" id="comentarioM" cols="100" rows="5"></textarea>
-        <button type="button" class="btn btn-primary btn-lg citas">
-            Finalizar caso
-        </button>
+        <h2 class="nav-item-name">Motivo</h2>
+        <ol class="list-group">
+            <li class="list-group-item">{{ ficha_medica.motivo }}</li>
+        </ol>
+        <h2 class="nav-item-name">Diagnostico</h2>
+        <textarea class="form-control" readonly style="background-color: white;">{{ ficha_medica.diagnostico }}</textarea>
+        <h2 class="nav-item-name">Medicamentos</h2>
+        <textarea class="form-control" readonly style="background-color: white;">{{ ficha_medica.medicamentos  }}</textarea>
     </div>
+
 </body>
 
 </html>

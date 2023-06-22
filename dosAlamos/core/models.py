@@ -60,3 +60,15 @@ class HoraTomada(models.Model):
         ('cerrado', 'Cerrado'),
     )
     estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='abierto')
+
+class FichaMedica(models.Model):
+    hora_tomada = models.ForeignKey(HoraTomada, on_delete=models.PROTECT, verbose_name='Hora tomada', related_name='fichas_medicas',null=True)
+    nombrePaciente = models.CharField(max_length=50, verbose_name='Nombre del paciente',null=True)
+    apellidoPaciente = models.CharField(max_length=50, verbose_name='Apellido del paciente',null=True)
+    correoPaciente = models.CharField(max_length=50, verbose_name='Correo del paciente',null=True)
+    motivo = models.CharField(max_length=50, verbose_name='motivo de la consulta',null=True)
+    diagnostico = models.TextField(verbose_name='Diagnostico del tratamiento',null=True)
+    medicamentos = models.TextField(verbose_name='Medicamentos del tratamiento',null=True)
+
+    def __str__(self):
+        return self.nombrePaciente

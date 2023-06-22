@@ -109,11 +109,17 @@
         outline: none;
       }
 
+      .btn-primary {
+       color: #fff;
+       background-color: #ffffff;
+       border-color: #007bff;
+      }
+
       .table {
         margin: 2rem;
         padding: 1.5rem;
         border: medium;
-        border-width: .2rem;
+        border-width: .2rem; 
       }
     </style>
 
@@ -123,7 +129,7 @@
           <tr>
             <th scope="col">Nombre completo paciente</th>
             <th scope="col">Fecha y hora atencion medica</th>
-            <th scope="col">Ficha</th>
+            <th>Ficha medica</th>
           </tr>
         </thead>
         <tbody>
@@ -131,14 +137,14 @@
           <tr>
             <td>{{h.nombrePaciente}} {{h.apellidoPaciente}}</td>
             <td>{{h.fecha_creacion}}</td>
-            <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
+            <td><a href="{% url 'MostrarFicha' hora_tomada_id=h.id %}">Ver ficha medica</a></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
       <div class="d-flex justify-content-center mt-3 md-3 p-5">
         <button type="button" class="btn btn-primary btn-lg citas">
-          Finalizar caso
+          <a href="{% url 'CrearFicha' %}">Crear ficha medica</a>
         </button>
       </div>
 

@@ -147,7 +147,7 @@
             <td>{{h.nombrePaciente}} {{h.apellidoPaciente}}</td>
             <td>{{h.fecha_creacion}}</td>
             <td>Dr. {{h.doctor}} {{h.doctor.last_name}}</td>
-            <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
+            <td><a href="{% url 'MostrarFicha' hora_tomada_id=h.id %}">Ver ficha</a></td>
             <td><a type="button" class="btn btn-primary btn-lg citas btn-danger" href="{% url 'eliminar_pacientes' id=h.id %}">Cancelar hora</a></td>
           </tr>
           {% endfor %}

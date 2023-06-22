@@ -19,7 +19,11 @@ def registrarse(request):
     return render(request, 'core/registrarse.html')
 
 def doctores(request):
-    return render(request, 'core/doctores.html')
+    medico = User.objects.filter(rol__nombreRol__icontains='Medico')
+    data = {
+        'medico':medico,
+    }
+    return render(request, 'core/doctores.html',data)
 
 def contacto(request):
     return render(request, 'core/contacto.html')
@@ -32,11 +36,11 @@ def sesion(request):
 
 def mostrar_horas_tomadas(request,id):
     usuario = get_object_or_404(User, pk=id)
-    horas_abiertas = HoraTomada.objects.filter(estado='abierto')
+    horaTomada = HoraTomada.objects.filter(estado='cerrado', nombrePaciente=id)
     user_id = request.user.id  # Obtener el ID del usuario logueado
     data = {
         'usuario':usuario,
-        'horas_abiertas':horas_abiertas,
+        'horaTomada':horaTomada,
         'user_id': user_id
     }
     return render(request, 'core/mostrar_horas_tomadas.html',data)
@@ -199,7 +203,7 @@ def guardar_hora(request):
 def eliminar_pacientes(request, id):
     horaT = HoraTomada.objects.get(pk = id)
     horaT.delete()
-    secretaria = get_object_or_404(User, pk=27)  # Obtener el usuario secretaria con ID 27
+    secretaria = get_object_or_404(User, pk=33)  # Obtener el usuario secretaria con ID 27
     messages.success(request, 'Hora rechazada.')
 
     return redirect('citas', secretaria.pk)
@@ -208,7 +212,15 @@ def aceptar_hora(request, id):
     horaT = HoraTomada.objects.get(pk = id)
     horaT.estado = 'cerrado'
     horaT.save()
-    secretaria = get_object_or_404(User, pk=27)  # Obtener el usuario secretaria con ID 27
+    secretaria = get_object_or_404(User, pk=33)  # Obtener el usuario secretaria con ID 27
     messages.success(request, 'Hora aprobada.')
 
     return redirect('citas', secretaria.pk)
+
+def cancelar_hora(request, id):
+    horaT = HoraTomada.objects.get(pk = id)
+    horaT.delete()
+    usuario = get_object_or_404(User, pk=id)  # Obtener el usuario secretaria con ID 27
+    messages.success(request, 'Hora cancelada.')
+
+    return redirect('mostrar_horas_tomadas', usuario.pk)

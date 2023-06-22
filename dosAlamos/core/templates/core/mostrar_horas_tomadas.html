@@ -136,7 +136,9 @@
           <tr>
             <th scope="col">Nombre completo paciente</th>
             <th scope="col">Fecha y hora atencion medica</th>
+            <th scope="col">Doctor asignado</th>
             <th scope="col">Ficha</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -144,16 +146,13 @@
           <tr>
             <td>{{h.nombrePaciente}} {{h.apellidoPaciente}}</td>
             <td>{{h.fecha_creacion}}</td>
+            <td>Dr. {{h.doctor}} {{h.doctor.last_name}}</td>
             <td><a href="{% url 'ficha' %}">Ver ficha</a></td>
+            <td><a type="button" class="btn btn-primary btn-lg citas btn-danger" href="{% url 'eliminar_pacientes' id=h.id %}">Cancelar hora</a></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
-      <div class="d-flex justify-content-center mt-3 md-3 p-5">
-        <button type="button" class="btn btn-primary btn-lg citas">
-          Finalizar caso
-        </button>
-      </div>
 
 
     </div>

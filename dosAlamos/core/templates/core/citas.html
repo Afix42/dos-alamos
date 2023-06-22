@@ -130,9 +130,9 @@
             <td>{{h.nombrePaciente}} {{h.apellidoPaciente}}</td>
             <td>{{h.fecha_creacion}}</td>
             <td>Dr. {{h.doctor}} {{h.doctor.last_name}}</td>
-            <td><a type="button" class="btn btn-primary btn-lg citas m-3 btn-success" href="{% url 'aceptar_hora' id=h.id %}">Aceptar Citas Medicas</a></td>
+            <td><a type="button" class="btn btn-primary btn-lg citas m-3 btn-success" href="{% url 'aceptar_hora' id=h.id %}">Aceptar Cita Médica</a></td>
             <td><a type="button" class="btn btn-primary btn-lg citas m-3 btn-danger"
-                href="{% url 'eliminar_pacientes' id=h.id %}">Rechazar Citas Medicas</a></td>
+                href="{% url 'eliminar_pacientes' id=h.id %}">Rechazar Cita Médica</a></td>
           </tr>
           {%endfor%}
         </tbody>

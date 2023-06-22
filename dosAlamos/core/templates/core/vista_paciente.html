@@ -63,7 +63,7 @@
                                 <a class="nav-link" href="{% url 'formulario' user_id %}">Pedir Hora</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="formulario/{{id}}">Historial horas</a>
+                                <a class="nav-link" href="{% url 'mostrar_horas_tomadas' user_id %}">Historial horas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Cerrar Sesion</a>

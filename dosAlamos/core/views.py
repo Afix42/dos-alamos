@@ -30,24 +30,31 @@ def clinica(request):
 def sesion(request):
     return render(request, 'core/sesion.html')
 
+def mostrar_horas_tomadas(request,id):
+    usuario = get_object_or_404(User, pk=id)
+    horas_abiertas = HoraTomada.objects.filter(estado='abierto')
+    user_id = request.user.id  # Obtener el ID del usuario logueado
+    data = {
+        'usuario':usuario,
+        'horas_abiertas':horas_abiertas,
+        'user_id': user_id
+    }
+    return render(request, 'core/mostrar_horas_tomadas.html',data)
+
 def formulario(request, id):
     usuario = get_object_or_404(User, pk=id)
     comuna = Comuna.objects.all
     medico = User.objects.filter(rol__nombreRol__icontains='Medico')
-
     data = {
         'usuario':usuario,
         'medico':medico,
         'comuna':comuna
     }
-
-
     return render(request, 'core/formulario.html', data)
 
 def citas(request, id):
     usuario = get_object_or_404(User, pk=id)
     horas_abiertas = HoraTomada.objects.filter(estado='abierto')
-
     data = {
         'usuario':usuario,
         'horas_abiertas':horas_abiertas
